@@ -52,6 +52,7 @@ defmodule HelloNerves.Mixfile do
   # Type "mix help deps" for more examples and options
   def deps do
     [{:nerves, "~> 0.7", runtime: false}] ++
+    [{:nerves_firmware_ssh, github: "fhunleth/nerves_firmware_ssh"}] ++
     deps(@target)
   end
 
@@ -60,7 +61,8 @@ defmodule HelloNerves.Mixfile do
   def deps(target) do
     [
       {:bootloader, "~> 0.1"},
-      {:nerves_runtime, "~> 0.4"}
+      {:nerves_runtime, "~> 0.4"},
+      {:nerves_network, "~> 0.3"}
     ] ++ system(target)
   end
 
